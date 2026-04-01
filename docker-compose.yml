@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  scout:
+    build: .
+    ports:
+      - "9100:9100"
+    environment:
+      - PORT=9100
+      - DATA_DIR=/data
+      - SCOUT_LICENSE_KEY=
+    volumes:
+      - scout_data:/data
+    restart: unless-stopped
+volumes:
+  scout_data:
